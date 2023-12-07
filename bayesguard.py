@@ -15,6 +15,10 @@ data.drop(columns=['Email No.'], inplace = True)
 # total of the number of empty rows
 data.isna().sum() 
 
+#correlation between columns and spam/not spam pos = more likely to be spam
+corr_matrix = data.corr()
+print(corr_matrix["Prediction"].sort_values(ascending = False))
+
 #data.shape
 x = data.iloc[: ,0:3000]  
 y = data.iloc[: , 3000]
